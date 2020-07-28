@@ -1,2 +1,2 @@
 # 42_seoul
-42seoul practice
+복습을 위한 곳
