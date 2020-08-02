@@ -1,2 +1,2 @@
 #!/bin/bash
-basename -s '.sh' $(find * -name '*.sh' -print)
+basename -s '.sh' $(find * -type f -name '*.sh' -print)
