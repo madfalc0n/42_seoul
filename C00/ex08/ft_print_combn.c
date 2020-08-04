@@ -21,10 +21,10 @@ void comb_proc(int start, int end, char array[], int array_len, char sav_char[])
 	}
 	else
 	{
-		tmp = start;
+		tmp = start + 1;
 		while (tmp < array_len)
 		{
-			sav_char[start] = array[start];
+			sav_char[tmp] = array[tmp];
 			if (!(strlen(sav_char) == end))
 			{
 				comb_proc(start + 1, end, array, array_len, sav_char);
@@ -47,6 +47,7 @@ void ft_print_combn(int n)
 	char sav_char[n];
 	
 	tmp = 0;
+	sav_char[0] = '0';
 	while (tmp < 10)
 	{
 		array[tmp] = tmp + 48;
