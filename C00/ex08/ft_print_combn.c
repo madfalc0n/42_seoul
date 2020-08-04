@@ -1,29 +1,57 @@
 #include <unistd.h>
+#include <string.h>
 
-void print_combn(char c)
+void print_combn(char c[], int num)
 {
-	write(1, &c, 1);
+	write(1, &c, num);
 }
 
-void while_proc(int cnt_n, int max_c, int origin_n)
+void rest_in_peace(void)
 {
-	if (max_c == 9)
+	print_combn(", ", 2);
+}
+
+void comb_proc(int start, int end, char array[], int array_len, char sav_char[])
+{
+	int tmp;
+
+	if (start == end)
 	{
-		print_combn('n');
+		rest_in_peace();
 	}
 	else
 	{
-		print_combn(48 + cnt_n);
-		while_proc(cnt_n + 1, max_c + 1);
+		tmp = start;
+		while (tmp < array_len)
+		{
+			sav_char[start] = array[start];
+			if (!(strlen(sav_char) == end))
+			{
+				comb_proc(start + 1, end, array, array_len, sav_char);
+			}
+			else
+			{
+				print_combn(sav_char, end);
+			}
+			tmp++;
+		}
 	}
-} 
+	
+}
 
 void ft_print_combn(int n)
 {
-	int cnt_n;
-
-	cnt_n = 0;
-	while_proc(cnt_n, 9 - n + 1, n);
+	int len;
+	char array[10];
+	int tmp;
+	char sav_char[n];
 	
-
+	tmp = 0;
+	while (tmp < 10)
+	{
+		array[tmp] = tmp + 48;
+		tmp++;
+	}
+	len = sizeof(array) / sizeof(array[0]);
+	comb_proc(0, n, array, len, sav_char);
 }
