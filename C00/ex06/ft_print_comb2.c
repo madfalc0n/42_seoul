@@ -6,22 +6,21 @@
 /*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/03 18:53:46 by myokim            #+#    #+#             */
-/*   Updated: 2020/08/03 20:40:20 by myokim           ###   ########.fr       */
+/*   Updated: 2020/08/05 12:57:41 by myokim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-
-void print_comb(char c)
+void	print_comb(char c)
 {
 	write(1, &c, 1);
 }
 
-void sub_comb2(int a, int b)
+void	sub_comb2(int a, int b)
 {
 	print_comb(48 + a / 10);
-	print_comb(48 + a % 10);	
+	print_comb(48 + a % 10);
 	print_comb(' ');
 	print_comb(48 + b / 10);
 	print_comb(48 + b % 10);
@@ -32,7 +31,7 @@ void sub_comb2(int a, int b)
 	}
 }
 
-void ft_print_comb2(void)
+void	ft_print_comb2(void)
 {
 	int a;
 	int b;
@@ -43,13 +42,9 @@ void ft_print_comb2(void)
 		b = a + 1;
 		while (b <= 99)
 		{
-			sub_comb2(a,b);
+			sub_comb2(a, b);
 			b++;
 		}
 		a++;
 	}
-	
-
-
- 
 }

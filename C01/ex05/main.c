@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/03 12:58:23 by myokim            #+#    #+#             */
-/*   Updated: 2020/08/05 15:31:25 by myokim           ###   ########.fr       */
+/*   Created: 2020/08/05 21:37:46 by myokim            #+#    #+#             */
+/*   Updated: 2020/08/05 21:54:13 by myokim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+void		ft_putstr(void *str);
 
-void		ft_print_numbers(void)
+int			main(void)
 {
-	char	a;
+	char	*a;
 
-	a = '0';
-	while (a <= '9')
-	{
-		write(1, &a, 1);
-		a++;
-	}
+	*a = "hello worl";
+	ft_putstr(a);
+	return (0);
 }

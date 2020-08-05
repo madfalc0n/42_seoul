@@ -6,16 +6,16 @@
 /*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/03 13:29:38 by myokim            #+#    #+#             */
-/*   Updated: 2020/08/03 20:31:16 by myokim           ###   ########.fr       */
+/*   Updated: 2020/08/05 15:32:10 by myokim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 
-void	ft_print_comb(void)
+void		ft_print_comb(void)
 {
-	char arr[3];
+	char	arr[3];
 
 	arr[0] = '0';
 	while (arr[0] <= '7')

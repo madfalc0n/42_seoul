@@ -1,57 +1,81 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_combn.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/08/05 13:01:08 by myokim            #+#    #+#             */
+/*   Updated: 2020/08/05 15:35:00 by myokim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
-#include <string.h>
 
-void print_combn(char c[], int num)
+void		print_combn(char c[], int num)
 {
-	write(1, &c, num);
+	int		tmp;
+
+	tmp = 0;
+	while (tmp < num)
+	{
+		write(1, &c[tmp], 1);
+		tmp++;
+	}
 }
 
-void rest_in_peace(void)
+void		rest_in_peace(int end, char sav_c[])
 {
-	print_combn(", ", 2);
+	int		tmp;
+	int		cnt;
+
+	tmp = 0;
+	cnt = 0;
+	while (tmp < end)
+	{
+		if (sav_c[tmp] == (9 - end + 1 + tmp) + 48)
+		{
+			cnt++;
+		}
+		tmp++;
+	}
+	if (cnt != end)
+	{
+		print_combn(", ", 2);
+	}
 }
 
-void comb_proc(int start, int end, char array[], int array_len, char sav_char[])
+void		comb_proc(int start, int end, int cur, char sav_c[])
 {
-	int tmp;
+	int		tmp;
 
 	if (start == end)
 	{
-		rest_in_peace();
+		print_combn(sav_c, end);
+		rest_in_peace(end, sav_c);
 	}
 	else
 	{
-		tmp = start;
-		while (tmp < array_len)
+		tmp = cur + 1;
+		while (tmp <= (9 - end + start + 1))
 		{
-			sav_char[start] = array[start];
-			if (!(strlen(sav_char) == end))
-			{
-				comb_proc(start + 1, end, array, array_len, sav_char);
-			}
-			else
-			{
-				print_combn(sav_char, end);
-			}
+			sav_c[start] = tmp + 48;
+			comb_proc(start + 1, end, tmp, sav_c);
 			tmp++;
 		}
 	}
-	
 }
 
-void ft_print_combn(int n)
+void		ft_print_combn(int n)
 {
-	int len;
-	char array[10];
-	int tmp;
-	char sav_char[n];
-	
+	int		tmp;
+	char	sav_char[n];
+
 	tmp = 0;
-	while (tmp < 10)
+	while (tmp <= (9 - n + 1))
 	{
-		array[tmp] = tmp + 48;
+		sav_char[0] = 48 + tmp;
+		comb_proc(1, n, tmp, sav_char);
 		tmp++;
 	}
-	len = sizeof(array) / sizeof(array[0]);
-	comb_proc(0, n, array, len, sav_char);
 }

@@ -6,15 +6,15 @@
 /*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/03 12:51:24 by myokim            #+#    #+#             */
-/*   Updated: 2020/08/03 12:52:47 by myokim           ###   ########.fr       */
+/*   Updated: 2020/08/05 15:29:06 by myokim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_reverse_alphabet(void)
+void		ft_print_reverse_alphabet(void)
 {
-	char a;
+	char	a;
 
 	a = 'z';
 	while (a >= 'a')
