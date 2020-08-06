@@ -10,13 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void		ft_putstr(void *str);
+void		ft_putstr(char *str);
 
 int			main(void)
 {
-	char	*a;
-
-	*a = "hello worl";
+	char	a[] = "hello worl";
 	ft_putstr(a);
 	return (0);
 }
