@@ -11,9 +11,20 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
-void	ft_putstr(void *str)
+void	ft_putstr(char *str)
 {
-	printf("%s\n", str);
+	char a;
+
+	a = 0;
+	while (1)
+	{
+		a = *str;
+		if (a == '\0')
+		{
+			break;
+		}
+		write(1, &a, 1);
+		str++;
+	}
 }
