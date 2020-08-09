@@ -13,40 +13,19 @@
 #include <unistd.h>
 #include <stdio.h>
 
-void	ft_swap(int *a, int *b)
-{
-	int	temp;
-	temp = *a;
-	*a = *b;
-	*b = temp;
-}
-
-int	next_permutation(int *a, int n)
+int	next_permutation(int **grid, int index)
 {
     int	i;
-	int	j;
+	int tmp;
 	
-	i = n - 1;
-    while (i > 0 && a[i] <= a[i - 1])
+	tmp = grid[index][1];
+	i = 1;
+	while (i < 4)
 	{
-		i -= 1;
+		grid[index][i] = grid[index][i+1];
+		i++;
 	}
-    if (i <= 0)
-	{
-		return (0);
-	}
-	j = n - 1;
-    while (a[i-1] >= a[j])
-	{
-        j -= 1;
-	}
-    ft_swap(&a[i - 1], &a[j]);
-	j = n - 1;
-	while (i < j)
-	{ 
-		ft_swap(&a[i], &a[j]);
-        i += 1;
-        j -= 1;
-    }
+	grid[index][4] = tmp;
+
     return (1);
 }

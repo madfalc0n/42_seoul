@@ -20,7 +20,7 @@ void	building(int **grid, int i);
 int		check_up_col(int ** grid, int i);
 int		check_down_col(int **grid, int i);
 void	print_result(int **grid);
-int		next_permutation(int *a, int n);
+int		next_permutation(int **grid, int i);
 int		promising(int **grid, int i);
 
 void	building(int **grid, int i)
@@ -28,32 +28,35 @@ void	building(int **grid, int i)
     int j;
 	int result;
    
-	result = promising(grid, i);
-    if (result == 0)
+    if( i == 5)
 	{
-		building(grid, i);
+		j = 1;
+		while (j < 5)
+		{
+			if (!check_up_col(grid, j) || !check_down_col(grid, j))
+			{
+				printf("-------------------\n");
+				printf("col is not matching\n");
+				print_result(grid);
+				return ;
+			}
+			j++;
+		}
+		
 	}
 	else
 	{
-		printf("%d\n",i);	
-        if (i == 5)
+		print_result(grid);
+		result = promising(grid, i);
+		if (result == 0)
 		{
-			j = 1;
-			while (j < 5)
-			{
-				if (!check_up_col(grid, j) || !check_down_col(grid, j))
-				{
-					return ;
-				}
-				j++;
-			} 
-			//print_result(grid);
+			building(grid, i);
 		}
 		else
 		{
 			building(grid, i + 1);
 		}
-    }
+	}
 }
 
 int promising(int **grid, int i)
@@ -78,26 +81,24 @@ int promising(int **grid, int i)
     	}
 	}
 	if (key == 0)
-		next_permutation(&grid[i][1], 4);
+		next_permutation(grid, i);
     return key;
 }
 
 int	look_up(int **grid, int i)
 {
 	int	j;
-	int	save;
 	int save_i;
 
 	j = 1;
-	save = grid[i][j];
-	save_i = i;
 	while (j < 5)
 	{
-		i = save_i;
-		while (i > 1)
+		save_i = i;
+		while (save_i > 1)
 		{
-			if (grid[--i][j] == save)
+			if (grid[save_i - 1][j] == grid[save_i][j])
 				return (0);
+			save_i--;
 		}
 		j++;
 	}

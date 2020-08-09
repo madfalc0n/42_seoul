@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
+#include <stdio.h>
 
 int	check_left_row(int **grid, int i);
 int check_right_row(int **grid, int i);
@@ -22,9 +23,9 @@ int	check_left_row(int **grid, int i)
 
 	count = 1;
 	j = 1;
+	temp = grid[i][1];
 	while (j < 4)
 	{
-		temp = grid[i][j];
 		if (temp < grid[i][j + 1])
 		{
 			count++;
@@ -45,9 +46,9 @@ int	check_right_row(int **grid, int i)
 
 	count = 1;
 	j = 4;
+	temp = grid[i][4];
 	while (j > 1)
 	{
-		temp = grid[i][j];
 		if (temp < grid[i][j - 1])
 		{
 			count++;

@@ -24,6 +24,8 @@ void	building(int **grid, int i);
 int	main(int argc, char **argv)
 {
 	int	**grid;
+	int	i;
+
 	grid = (int **)malloc(sizeof(int *) * 6);
 	if ( argc != 2 || except(argv))
 	{
@@ -35,5 +37,12 @@ int	main(int argc, char **argv)
 	grid_input_init(argv, grid);
 	print_result(grid);
 	building(grid, 1);
+	i = 0;
+	while (i < 6)
+	{
+		free(grid[i]);
+		i++;
+	}
+	free(grid);
 	return (0);
 }

@@ -23,9 +23,9 @@ int	check_up_col(int **grid, int i)
 
 	count = 1;
 	j = 1;
+	temp = grid[1][i];
 	while (j < 4)
 	{
-		temp = grid[j][i];
 		if (temp < grid[j + 1][i])
 		{
 			count++;
@@ -46,9 +46,9 @@ int	check_down_col(int **grid, int i)
 
 	count = 1;
 	j = 4;
+	temp = grid[4][i];
 	while (j > 1)
 	{
-		temp = grid[j][i];
 		if (temp < grid[j - 1][i])
 		{
 			count++;
