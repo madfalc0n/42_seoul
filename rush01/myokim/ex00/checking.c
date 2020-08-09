@@ -20,33 +20,28 @@ void	building(int **grid, int i);
 int		check_up_col(int ** grid, int i);
 int		check_down_col(int **grid, int i);
 void	print_result(int **grid);
-int		next_permutation(int **grid, int i);
+void	ft_swap(int **grid, int i);
+// int		next_permutation(int **grid, int i);
+int		next_permutation(int *a);
 int		promising(int **grid, int i);
 
 void	building(int **grid, int i)
 {
     int j;
 	int result;
-   
+
     if( i == 5)
 	{
 		j = 1;
 		while (j < 5)
 		{
 			if (!check_up_col(grid, j) || !check_down_col(grid, j))
-			{
-				printf("-------------------\n");
-				printf("col is not matching\n");
-				print_result(grid);
 				return ;
-			}
 			j++;
 		}
-		
 	}
 	else
 	{
-		print_result(grid);
 		result = promising(grid, i);
 		if (result == 0)
 		{
@@ -81,7 +76,12 @@ int promising(int **grid, int i)
     	}
 	}
 	if (key == 0)
-		next_permutation(grid, i);
+	{
+		// next_permutation(grid, i);
+		next_permutation(grid[i]);
+		printf("--------------\n");
+		print_result(grid);
+	}
     return key;
 }
 

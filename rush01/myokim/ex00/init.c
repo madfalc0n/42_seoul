@@ -13,9 +13,10 @@
 #include <unistd.h>
 
 void	grid_input_init(char **argv, int **grid);
-void	grid_init(int **grid);
+void	grid_init(int **grid, int *array);
+void	permu_init(int **permu, int *array, int s, int cur);
 
-void	grid_init(int **grid)
+void	grid_init(int **grid, int *array)
 {
 	int	i;
 	int	j;
@@ -31,6 +32,12 @@ void	grid_init(int **grid)
 				grid[j][i] = i;
 			i++;
 		}
+		j++;
+	}
+	j = 0;
+	while (j < 4)
+	{
+		array[j] = j + 1;
 		j++;
 	}
 }
@@ -58,4 +65,25 @@ void	grid_input_init(char **argv, int **grid)
 		i++;
 		j += 2;
 	}
+}
+void	permu_init(int **permu, int *array, int s, int cur)
+{
+	int i;
+
+	if (s == 4)
+	{
+
+		return ;
+	}
+	i = 0
+	while (i < 4)
+    {
+        ft_swap(input[index], input[i]);
+        permutation(index + 1, input);
+        ft_swap(input[index], input[i]);
+		i++;
+    }
+
+
+
 }
