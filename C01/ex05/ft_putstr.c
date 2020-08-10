@@ -6,15 +6,15 @@
 /*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 21:36:30 by myokim            #+#    #+#             */
-/*   Updated: 2020/08/05 21:55:00 by myokim           ###   ########.fr       */
+/*   Updated: 2020/08/10 12:52:19 by myokim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+void		ft_putstr(char *str)
 {
-	char a;
+	char	a;
 
 	a = 0;
 	while (1)
@@ -22,7 +22,7 @@ void	ft_putstr(char *str)
 		a = *str;
 		if (a == '\0')
 		{
-			break;
+			break ;
 		}
 		write(1, &a, 1);
 		str++;

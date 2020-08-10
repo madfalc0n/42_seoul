@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/08/10 12:45:59 by myokim            #+#    #+#             */
+/*   Updated: 2020/08/10 12:47:00 by myokim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_sort_int_tab(int *tab, int size)
+void	ft_sort_int_tab(int *tab, int size)
 {
-	int i;
-	int j;
-	int tmp;
-	
+	int	i;
+	int	j;
+	int	tmp;
+
 	i = 0;
 	while (i < size - 1)
 	{
@@ -21,6 +32,4 @@ void ft_sort_int_tab(int *tab, int size)
 		}
 		i++;
 	}
-		
-
 }
