@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_result.c                                     :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mijeong <minje70@naver.com>                +#+  +:+       +#+        */
+/*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/08 14:57:25 by mijeong           #+#    #+#             */
-/*   Updated: 2020/08/09 17:49:57 by mijeong          ###   ########.fr       */
+/*   Created: 2020/08/10 16:58:45 by myokim            #+#    #+#             */
+/*   Updated: 2020/08/10 18:10:06 by myokim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	print_result(int **grid)
+char		*ft_strupcase(char *str)
 {
-	int	i;
-	int	j;
-	char temp_char;
+	int		i;
 
-	j = 0;
-	while (j < 6)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		i = 0;
-		while (i < 6)
-		{
-			temp_char = grid[j][i] + '0';
-			write(1, &temp_char, 1);
-			i++;
-		}
-		j++;
-		write(1, "\n", 1);
+		if ((str[i] >= 'a' && str[i] <= 'z'))
+			str[i] -= 32;
+		i++;
 	}
+	return (str);
 }

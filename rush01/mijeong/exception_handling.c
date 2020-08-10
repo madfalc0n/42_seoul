@@ -35,7 +35,7 @@ int	except(char **argv)
 		i += 2;
 		j += 2;
 	}
-	if (ft_check_input(argv) == 1 || ft_check_input(argv) == 2)
+	if (ft_check_input(argv)|| ft_check_input2(argv))
 		return (1);
 	return (0);
 }
@@ -59,17 +59,21 @@ int ft_check_input(char **argv)
 	{
 		if (argv[1][i] == '1' && argv[1][i+8] == '1')
 		{
-				return (1);
+			return (1);
 		}
 		else if (argv[1][i] == '4' && argv[1][i+8] != '1')
 		{
-				return (1);
+			return (1);
 		}
 		else if (argv[1][i] == '3' && argv[1][i+8] >= '3')
 		{
-				return (1);
+			return (1);
 		}
 		i = i + 2;
+		if (i == 8)
+		{
+			i = 16;
+		}
 	}
 	return (0);
 }
@@ -81,8 +85,19 @@ int ft_check_input2(char **argv)
 	i = 0;
 	while (i < 15)
 	{
-		if (argv[1][i] == '1' && argv[1][i+16] != '1')
+		if (i == 0 || i == 14)
 		{
+			if (argv[1][i] == '1' && argv[1][i+16] != '1')
+				return (1);
+		}
+		else if (i == 6)
+		{
+			if (argv[1][i] == '1' && argv[1][i+18] != '1')
+				return (1);
+		}
+		else if (i == 8)
+		{
+			if (argv[1][i] == '1' && argv[1][i+14] != '1')
 				return (1);
 		}
 		i = i + 2;

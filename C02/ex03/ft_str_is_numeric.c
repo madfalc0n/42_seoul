@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_result.c                                     :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mijeong <minje70@naver.com>                +#+  +:+       +#+        */
+/*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/08 14:57:25 by mijeong           #+#    #+#             */
-/*   Updated: 2020/08/09 17:49:57 by mijeong          ###   ########.fr       */
+/*   Created: 2020/08/10 16:31:25 by myokim            #+#    #+#             */
+/*   Updated: 2020/08/10 16:35:21 by myokim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	print_result(int **grid)
+int			ft_str_is_numeric(char *str)
 {
-	int	i;
-	int	j;
-	char temp_char;
+	char	a;
 
-	j = 0;
-	while (j < 6)
+	while (1)
 	{
-		i = 0;
-		while (i < 6)
-		{
-			temp_char = grid[j][i] + '0';
-			write(1, &temp_char, 1);
-			i++;
-		}
-		j++;
-		write(1, "\n", 1);
+		a = *str;
+		if (a == '\0')
+			break ;
+		if (!(a >= '0' && a <= '9'))
+			return (0);
+		str++;
 	}
+	return (1);
 }

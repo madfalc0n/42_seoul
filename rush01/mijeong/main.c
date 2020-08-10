@@ -35,7 +35,9 @@ int	main(int argc, char **argv)
 	assign(grid);
 	grid_init(grid);
 	grid_input_init(argv, grid);
+	print_result(grid);
 	building(grid, 1);
+	print_result(grid);
 	i = 0;
 	while (i < 6)
 	{
