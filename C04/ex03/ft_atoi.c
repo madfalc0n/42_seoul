@@ -23,11 +23,9 @@ int conv_a_to_num(char *str)
             num_cnt++;
         }
         else if (!(str[i] >= '0' && str[i] <= '9') && num_cnt > 1) //숫자 쌓이고 있는데 갑자기 다른놈 튀어나온 경우
-        {
             break ;
-        }
         i++;
-    }  
+    }
 }
 
 int ft_atoi(char *str)
