@@ -1,16 +1,26 @@
-char *ft_strcat(char *dest, char *src)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/08/13 17:01:55 by myokim            #+#    #+#             */
+/*   Updated: 2020/08/13 17:02:40 by myokim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+char	*ft_strcat(char *dest, char *src)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
 
-    i = 0;
-    while (dest[i] != '\0')
-        i++;
-    j = 0;
-    while (src[j] != '\0')
-        dest[i++] = src[j++];
-    dest[i] = '\0';
-    return (dest);
+	i = 0;
+	while (dest[i] != '\0')
+		i++;
+	j = 0;
+	while (src[j] != '\0')
+		dest[i++] = src[j++];
+	dest[i] = '\0';
+	return (dest);
 }
-
-
