@@ -6,7 +6,7 @@
 /*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/10 15:10:11 by myokim            #+#    #+#             */
-/*   Updated: 2020/08/10 15:39:14 by myokim           ###   ########.fr       */
+/*   Updated: 2020/08/14 01:06:35 by myokim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@ char	*ft_strcpy(char *dest, char *src)
 	int	i;
 
 	i = 0;
-	while (src[i])
+	while (src[i] != '\0')
 	{
 		dest[i] = src[i];
-		if (src[i] == '\0')
-			break ;
 		i++;
 	}
+	dest[i] = '\0';
 	return (dest);
 }
