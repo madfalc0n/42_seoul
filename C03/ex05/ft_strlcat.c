@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   skip_ft_strlcat.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/13 17:03:00 by myokim            #+#    #+#             */
-/*   Updated: 2020/08/16 05:17:16 by myokim           ###   ########.fr       */
+/*   Created: 2020/08/14 00:59:24 by myokim            #+#    #+#             */
+/*   Updated: 2020/08/16 04:56:07 by myokim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int					ft_strncmp(char *s1, char *s2, unsigned int n)
+unsigned		int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int	i;
+	unsigned	int i;
+	unsigned	int j;
 
 	i = 0;
-	while (i < n || (s1[i] != '\0' || s2[i] != '\0'))
-	{
-		if (s1[i] < s2[i])
-			return (-1);
-		else if (s1[i] > s2[i])
-			return (1);
+	while (dest[i] != '\0')
 		i++;
+	j = 0;
+	while (src[j] != '\0' && i + j < size - 1)
+	{
+		dest[i + j] = src[j];
+		j++;
 	}
-	if (s1[i] < s2[i])
-		return (-1);
-	else if (s1[i] > s2[i])
-		return (1);
+	dest[i + j] = '\0';
+	while (src[j] != '\0')
+		j++;
+	if (size == 0)
+		return (j);
+	if (j > size)
+		return (j + size);
 	else
-		return (0);
+		return (i + j);
 }
