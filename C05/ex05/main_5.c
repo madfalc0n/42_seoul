@@ -7,7 +7,7 @@ int main(void)
     int i;
 
     i = 1;
-    while (i < 10)
+    while (i < 101)
     {
         printf("%d : %d\n", i, ft_sqrt(i));
         i++;
