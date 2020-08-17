@@ -22,26 +22,29 @@ int ft_strlen(char *n_list)
 	return (i);
 }
 
-int conv_num(char *n_list)
+int conv_num(char *n_list, int m_cnt)
 {
 	int i;
 	int cnt;
 	int result;
 
-	i = ft_strlen(n_list);
+	i = ft_strlen(n_list) - 1;
 	cnt = 1;
 	result = 0;
-	while (i > 0)
+	while (i > -1)
 	{
 		if (n_list[i] != 0)
 		{
-			result += (n_list[i] * cnt);
+			result += ((n_list[i] - 48) * cnt);
 		}
 		cnt *= 10;
 		i--;
 	}
-	printf("atoi val : %d \n", result);
-	return (result);
+
+	if (m_cnt % 2 == 0)
+		return (-1 * result);
+	else
+		return (result);
 }
 
 int conv_a_to_num(char *str)
@@ -50,8 +53,7 @@ int conv_a_to_num(char *str)
     int num_cnt;
 	int mi_cnt;
 	int j;
-	char *n_list;
-
+	char n_list[1000];
 
     i = 0;
 	j = 0;
@@ -71,15 +73,14 @@ int conv_a_to_num(char *str)
             break ;
         i++;
     }
-	printf("result : %d\n", conv_num(str));
-	return (conv_num(str));
+	return (conv_num(str, mi_cnt));
 }
 
 int ft_atoi(char *str)
 {
 	int result;
 
-	printf("origin str: %s", str);
+	printf("origin str: %s\n", str);
 	result = conv_a_to_num(str);
 	return (result);
 }
