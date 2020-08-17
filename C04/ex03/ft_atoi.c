@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 int ft_strlen(char *n_list)
 {
 	int i;
@@ -34,14 +32,11 @@ int conv_num(char *n_list, int m_cnt)
 	while (i > -1)
 	{
 		if (n_list[i] != 0)
-		{
 			result += ((n_list[i] - 48) * cnt);
-		}
 		cnt *= 10;
 		i--;
 	}
-
-	if (m_cnt % 2 == 0)
+	if (m_cnt != 0 && m_cnt % 2 != 0)
 		return (-1 * result);
 	else
 		return (result);
@@ -63,7 +58,7 @@ int conv_a_to_num(char *str)
     {
         if (str[i] == '-')
             mi_cnt++;
-        else if (str[i] >= '0' && str[i] <= '9')
+		else if ((str[i] >= '1' && str[i] <= '9') || (str[i] == '0' && num_cnt > 1))
         {
 			n_list[j] = str[i];
             num_cnt++;
@@ -73,14 +68,13 @@ int conv_a_to_num(char *str)
             break ;
         i++;
     }
-	return (conv_num(str, mi_cnt));
+	return (conv_num(n_list, mi_cnt));
 }
 
 int ft_atoi(char *str)
 {
 	int result;
 
-	printf("origin str: %s\n", str);
 	result = conv_a_to_num(str);
 	return (result);
 }

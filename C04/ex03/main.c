@@ -9,6 +9,6 @@ int main(int args, char **argv)
 	printf("intput : %d\n", args);
 
 	a = argv[1];
-	ft_atoi(a);
+	printf("result : %d\n",ft_atoi(a));
 	return (0);
 }
