@@ -5,76 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/16 05:35:55 by myokim            #+#    #+#             */
-/*   Updated: 2020/08/16 05:41:50 by myokim           ###   ########.fr       */
+/*   Created: 2020/08/18 18:51:55 by myokim            #+#    #+#             */
+/*   Updated: 2020/08/18 18:52:37 by myokim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strlen(char *n_list)
+int		ft_atoi(char *str)
 {
 	int i;
-	
+	int mi;
+	int num;
+	int result;
+
 	i = 0;
-	while (n_list[i] != '\0')
+	mi = 1;
+	num = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	return (i);
-}
-
-int conv_num(char *n_list, int m_cnt)
-{
-	int i;
-	int cnt;
-	int result;
-
-	i = ft_strlen(n_list) - 1;
-	cnt = 1;
-	result = 0;
-	while (i > -1)
+	while (str[i] == '-' || str[i] == '+')
 	{
-		if (n_list[i] != 0)
-			result += ((n_list[i] - 48) * cnt);
-		cnt *= 10;
-		i--;
+		if (str[i] == '-')
+			mi *= -1;
+		i++;
 	}
-	if (m_cnt != 0 && m_cnt % 2 != 0)
-		return (-1 * result);
-	else
-		return (result);
-}
-
-int conv_a_to_num(char *str)
-{
-    int i;
-    int num_cnt;
-	int mi_cnt;
-	int j;
-	char n_list[1000];
-
-    i = 0;
-	j = 0;
-    num_cnt = 1;
-	mi_cnt = 0;
-    while(str[i] != '\0')
-    {
-        if (str[i] == '-')
-            mi_cnt++;
-		else if ((str[i] >= '1' && str[i] <= '9') || (str[i] == '0' && num_cnt > 1))
-        {
-			n_list[j] = str[i];
-            num_cnt++;
-			j++;
-        }
-        else if (!(str[i] >= '0' && str[i] <= '9') && num_cnt > 1) //숫자 쌓이고 있는데 갑자기 다른놈 튀어나온 경우
-            break ;
-        i++;
-    }
-	return (conv_num(n_list, mi_cnt));
-}
-
-int ft_atoi(char *str)
-{
-	int result;
-
-	result = conv_a_to_num(str);
-	return (result);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		num *= 10;
+		num += str[i++] - '0';
+	}
+	return (mi * num);
 }
