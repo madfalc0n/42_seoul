@@ -13,9 +13,7 @@ int ft_find_next_prime(int nb)
         while (j < nb / 2 + 1)
         {
             if (i * j == nb)
-            {
                 result = 0;
-            }
             j++;
         }
         i++;
