@@ -1,21 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/08/19 15:42:30 by myokim            #+#    #+#             */
+/*   Updated: 2020/08/19 15:42:41 by myokim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-int main(int args, char **argv)
+int		main(int args, char **argv)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
 
-    i = args - 1;
-    while (i > 0)
-    {
-        j = 0;
-        while (argv[i][j] != '\0')
-        {
-            write(1, &argv[i][j], 1);
-            j++;
-        }
-        i--;
-        write(1, "\n", 1);
-    }
+	i = args - 1;
+	while (i > 0)
+	{
+		j = 0;
+		while (argv[i][j] != '\0')
+		{
+			write(1, &argv[i][j], 1);
+			j++;
+		}
+		i--;
+		write(1, "\n", 1);
+	}
 	return (0);
 }

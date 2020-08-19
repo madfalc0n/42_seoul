@@ -1,68 +1,88 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_params.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/08/19 15:43:05 by myokim            #+#    #+#             */
+/*   Updated: 2020/08/19 15:44:34 by myokim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
-#include <stdio.h>
 
-void ft_swap(char **str1, char **str2)
+int			ft_strlen(char *str)
 {
-    char *tmp;
+	int		i;
 
-    tmp = *str1;
-    *str1 = *str2;
-    *str2 = tmp;
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
-void ft_sort(char *str1, char *str2)
+int			ft_sort(char *str1, char *str2)
 {
-    int i;
+	int		i;
 
-    i = 0;
-    while (str1[i] != '\0' && str2[i] != '\0')
-    {
-        if (str1[i] > str2[i])
-            ft_swap(&str1, &str2);
-            break ;
-        i++;
-    }
+	i = 0;
+	while (str1[i] != '\0' || str2[i] != '\0')
+	{
+		if (str1[i] > str2[i])
+			return (1);
+		if (str1[i] < str2[i])
+			return (-1);
+		i++;
+	}
+	if (ft_strlen(str1) > ft_strlen(str2))
+		return (1);
+	if (ft_strlen(str1) < ft_strlen(str2))
+		return (-1);
+	return (0);
 }
 
-void ft_print(char **argv)
+void		ft_print(char **argv)
 {
-    int i;
-    int j;
+	int		i;
+	int		j;
 
-    i = 1;
-    while (argv[i])
-    {
-        j = 0;
-        while (argv[i][j] != '\0')
-        {
-            write(1, &argv[i][j], 1);
-            j++;
-        }
-        i++;
-        write(1, "\n", 1);
-    }
+	i = 1;
+	while (argv[i])
+	{
+		j = 0;
+		while (argv[i][j] != '\0')
+		{
+			write(1, &argv[i][j], 1);
+			j++;
+		}
+		i++;
+		write(1, "\n", 1);
+	}
 }
 
-int main(int args, char **argv)
+int			main(int argc, char **argv)
 {
-    int i;
-    int j;
+	char	*tmp;
+	int		i;
+	int		j;
 
-    i = 1;
-    printf("argv1 : %d\n", args - 1);
-    while (i < args - 1)
-    {
-        j = i + 1;
-        while (j < args)
-        {
-            //printf("argv1 : %s , argv2 : %s\n", argv[i], argv[j]);
-            ft_sort(argv[i], argv[j]);
-            j++;
-        }
-        printf("%s\n", argv[i]);
-        i++;
-    }
-    printf("%s\n", argv[i]);
-    //ft_print(argv);
+	i = 1;
+	while (i < argc - 1)
+	{
+		j = i + 1;
+		while (j < argc)
+		{
+			if (ft_sort(argv[i], argv[j]) == 1)
+			{
+				tmp = argv[i];
+				argv[i] = argv[j];
+				argv[j] = tmp;
+			}
+			j++;
+		}
+		i++;
+	}
+	ft_print(argv);
 	return (0);
 }
