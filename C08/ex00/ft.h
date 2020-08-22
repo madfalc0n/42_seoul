@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/19 11:56:36 by myokim            #+#    #+#             */
-/*   Updated: 2020/08/19 11:57:27 by myokim           ###   ########.fr       */
+/*   Created: 2020/08/20 19:07:49 by myokim            #+#    #+#             */
+/*   Updated: 2020/08/20 19:08:05 by myokim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_find_next_prime(int nb)
-{
-	int	i;
-	int	result;
+#ifndef FT_H
+# define FT_H
 
-	i = 2;
-	result = 1;
-	if (nb < 2)
-		return (2);
-	while (i <= (nb / i))
-	{
-		if (nb % i == 0)
-			return (ft_find_next_prime(nb + 1));
-		i++;
-	}
-	return (nb);
-}
+void	ft_putchar(char c);
+void	ft_swap(int *a, int *b);
+void	ft_putstr(char *str);
+int		ft_strlen(char *str);
+int		ft_strcmp(char *s1, char *s2);
+
+#endif

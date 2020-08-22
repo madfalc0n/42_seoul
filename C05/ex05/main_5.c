@@ -12,6 +12,7 @@ int main(void)
         printf("%d : %d\n", i, ft_sqrt(i));
         i++;
     }
+    printf("%d : %d\n", i, ft_sqrt(65535));
     return (0);
 
 }

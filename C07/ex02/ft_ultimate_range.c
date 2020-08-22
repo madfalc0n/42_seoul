@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/19 11:56:36 by myokim            #+#    #+#             */
-/*   Updated: 2020/08/19 11:57:27 by myokim           ###   ########.fr       */
+/*   Created: 2020/08/20 18:29:00 by myokim            #+#    #+#             */
+/*   Updated: 2020/08/20 18:29:15 by myokim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_find_next_prime(int nb)
-{
-	int	i;
-	int	result;
+#include <stdlib.h>
 
-	i = 2;
-	result = 1;
-	if (nb < 2)
-		return (2);
-	while (i <= (nb / i))
+int		ft_ultimate_range(int **range, int min, int max)
+{
+	int	*arr;
+	int	cnt;
+	int	len;
+
+	if (min >= max)
 	{
-		if (nb % i == 0)
-			return (ft_find_next_prime(nb + 1));
-		i++;
+		*range = 0;
+		return (0);
 	}
-	return (nb);
+	len = max - min;
+	if ((arr = (int *)malloc(sizeof(int) * len)) == 0)
+		return (-1);
+	cnt = 0;
+	while (cnt < len)
+	{
+		arr[cnt] = min;
+		min++;
+		cnt++;
+	}
+	*range = arr;
+	return (cnt);
 }

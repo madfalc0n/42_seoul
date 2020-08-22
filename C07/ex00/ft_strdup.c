@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myokim <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/19 11:56:36 by myokim            #+#    #+#             */
-/*   Updated: 2020/08/19 11:57:27 by myokim           ###   ########.fr       */
+/*   Created: 2020/08/20 18:27:12 by myokim            #+#    #+#             */
+/*   Updated: 2020/08/20 18:27:53 by myokim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_find_next_prime(int nb)
-{
-	int	i;
-	int	result;
+#include <stdlib.h>
 
-	i = 2;
-	result = 1;
-	if (nb < 2)
-		return (2);
-	while (i <= (nb / i))
+int			ft_strlen(char *src)
+{
+	int		i;
+
+	i = 0;
+	while (src[i])
+		i++;
+	return (i);
+}
+
+char		*ft_strdup(char *src)
+{
+	int		i;
+	char	*dest;
+
+	if ((dest = (char *)malloc(ft_strlen(src) * sizeof(char) + 1)) == NULL)
+		return (0);
+	i = 0;
+	while (src[i])
 	{
-		if (nb % i == 0)
-			return (ft_find_next_prime(nb + 1));
+		dest[i] = src[i];
 		i++;
 	}
-	return (nb);
+	dest[i] = '\0';
+	return (dest);
 }

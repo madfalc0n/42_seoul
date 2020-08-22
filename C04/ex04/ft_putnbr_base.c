@@ -43,6 +43,8 @@ int				ft_val_check(char *base, int len)
 		}
 		i++;
 	}
+	if (base[i] == '-' || base[i] == '+')
+			return (0);
 	return (1);
 }
 
